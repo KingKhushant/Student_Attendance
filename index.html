@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script> <!-- SheetJS Library -->
+</head>
+<body>
+    <div class="attendance-container">
+        <h1>Attendance</h1>
+
+        <!-- Class, Section, and Date Input -->
+        <label>Class Name: <input type="text" id="class-name" placeholder="Enter class name"></label><br>
+        <label>Section: <input type="text" id="section" placeholder="Enter section"></label><br>
+        <p id="date"></p>
+
+        <!-- Student Roll and Name Display -->
+        <p id="student-display"></p>
+
+        <!-- Attendance Marking Buttons -->
+        <div class="button-group">
+            <button class="round abs" onclick="markAttendance(0)">Absent</button>
+            <button class="round pre" onclick="markAttendance(1)">Present</button>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="navigation-buttons">
+            <button onclick="previousStudent()">Previous</button>
+            <button onclick="nextStudent()">Next</button>
+        </div>
+
+        <!-- End Attendance Button -->
+        <button onclick="endAttendance()" class="butt">End Attendance</button>
+
+        <!-- Download Excel Button -->
+        <!-- <button onclick="downloadExcel()" class="butt">Download Excel</button> New Button -->
+
+        <!-- Summary Sheet Display -->
+        <div class="summary-sheet-container" id="summary-sheet-container">
+            <h2>Attendance Summary</h2>
+            <div id="summary-scrollable">
+                <div id="summary-sheet"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- <script>
+        // Create a sample list of students
+        let students = [
+            { roll: 1, name: "John Doe", status: 1 },
+            { roll: 2, name: "Jane Smith", status: 0 },
+            // Add more students as needed
+        ];
+
+        // Function to download the attendance as Excel
+        function downloadExcel() {
+            const className = document.getElementById("class-name").value || "Unknown Class";
+            const section = document.getElementById("section").value || "Unknown Section";
+            const today = new Date().toLocaleDateString();
+
+            // Create a new Excel worksheet
+            const ws_data = [
+                ["Roll", "Name", "Status"], // Column headers
+            ];
+
+            // Add student data to the worksheet
+            students.forEach(student => {
+                const status = student.status === 1 ? "Present" : "Absent";
+                ws_data.push([student.roll, student.name, status]);
+            });
+
+            // Create a new workbook and add the worksheet
+            const ws = XLSX.utils.aoa_to_sheet(ws_data);
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "Attendance");
+
+            // Generate the Excel file and trigger the download
+            XLSX.writeFile(wb, `${className}-${section}-Attendance-${today}.xlsx`);
+        }
+    </script> -->
+</body>
+</html>

@@ -1,0 +1,59 @@
+/* Add this CSS in style.css */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f9;
+}
+.attendance-container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+.button-group button, .navigation-buttons button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+.summary-sheet-container {
+    margin-top: 20px;
+}
+.present {
+    color: green;
+}
+.absent {
+    color: red;
+}
+#summary-sheet p {
+    display: flex;
+    justify-content: space-between;
+}
+/* Set a max height and enable scrolling */
+#summary-scrollable {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+}
+.round {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+.pre {
+    background-color: rgba(27, 207, 27, 0.71);
+}
+.abs {
+    background-color: rgb(241, 86, 86);
+}
+.butt{
+    margin-top: 15px;
+    height: 40px;
+}
